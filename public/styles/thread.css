@@ -1,0 +1,88 @@
+.posts {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.5rem;
+}
+
+.post {
+  overflow: hidden;
+  background-color: #222;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  border-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.post-meta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.post-meta {
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+}
+
+.post-meta>*:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.post-meta .post-name {
+  color: #10c15c;
+  font-weight: bold;
+}
+
+.post-meta .post-subject {
+  color: #ed1c24;
+  font-weight: bold;
+}
+
+.post-meta .post-no {
+  color: #0000ee;
+}
+
+.post-meta .post-time {
+  color: #d3d3d3;
+}
+
+.post-meta .post-id {
+  font-size: 0.6rem;
+  line-height: 0.6rem;
+  padding: 5px 10px;
+  background: black;
+  border-radius: 10px;
+}
+
+.post .post-attachment {
+  margin-right: 0.5rem;
+}
+
+.post .post-attachment:not(.expanded) img.full {
+  display: none;
+}
+
+.post .post-attachment.expanded img.thumbnail {
+  display: none;
+}
+
+.post .post-content {
+  display: flex;
+  flex-direction: row;
+  padding-top: 0.5rem;
+  font-size: 0.825rem;
+}
+
+.post:target {
+  border-color: #10c15c;
+  box-shadow: 0 0 12px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-content .quote {
+  color: #10c15c;
+}

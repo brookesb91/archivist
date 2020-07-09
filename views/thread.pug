@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Archivist || #{thread.posts[0].semantic_url}
+    link(rel="stylesheet", href="/styles/styles.css")
+    link(rel="stylesheet", href="/styles/thread.css")
+  body
+
+    .thread-page
+      .thread
+        .posts
+          each post in thread.posts
+            .post(id="p" + post.no)
+              .post-meta
+                if post.country
+                  img.post-flag(src="https://www.countryflags.io/" + post.country + "/flat/16.png")
+                .post-name=post.name
+                if post.id
+                  .post-id=post.id
+                if post.sub
+                  .post-subject=post.sub
+                .post-time=post.now
+                .post-no=post.no
+
+              .post-content
+                if post.filename && post.tim
+                  .post-attachment
+                    img.post-image(height=post.tn_h, width=post.tn_w src="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", alt="").thumbnail
+                    //- img.post-image(height=post.h, width=post.w src="https://i.4cdn.org/" + thread.board + "/" + post.tim + post.ext, alt="").full
+                .post-comment!=post.com

@@ -1,0 +1,65 @@
+.threads {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.threads .thread {
+  display: flex;
+  width: 180px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.25rem;
+  padding: 0.5rem;
+  max-height: 250px;
+  font-size: 0.825rem;
+  line-height: 1rem;
+  background-color: #222;
+  border-radius: 4px;
+}
+
+.thread .thread-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.thread .thread-name,
+.thread .thread-subject {
+  font-weight: bold;
+}
+
+.thread .thread-content {
+  color: white;
+  font-size: 0.75rem;
+  overflow: hidden;
+}
+
+.thread .thread-content:hover {
+  overflow: auto;
+}
+
+.thread .thread-name {
+  color: #10c15c;
+}
+
+.thread .thread-subject {
+  text-align: center;
+  color: #ed1c24;
+}
+
+.thread .thread-meta {
+  width: 100%;
+  color: #10c15c;
+  padding-top: 0.25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.thread .thread-meta>* {
+  text-align: center;
+  flex: 1;
+}
