@@ -24,3 +24,7 @@ html(lang="en")
               .thread-replies [R: #{post.replies}]
               .thread-images [I: #{post.images}]
               .thread-uniques [U: #{post.unique_ips}]
+      .pagination
+        .pages
+          each page in pagination.pages
+            a(href="/archive?page=" + page + "&limit=" + pagination.limit class=(pagination.current === page ? 'current' : '')).page="[" + page + "]"

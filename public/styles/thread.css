@@ -1,13 +1,41 @@
+.thread-header,
+.thread-meta {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+}
+
+.thread-header {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: bold;
+}
+
+.thread-header .links .link {
+  color: inherit;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.thread-meta {
+  font-size: 0.725rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .posts {
   color: white;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 0.5rem;
+  max-width: 100%;
 }
 
 .post {
-  overflow: hidden;
   background-color: #222;
   padding: 0.5rem 1rem;
   box-sizing: border-box;
@@ -47,7 +75,8 @@
   color: #0000ee;
 }
 
-.post-meta .post-time {
+.post-meta .post-time,
+.thread-meta {
   color: #d3d3d3;
 }
 
@@ -60,11 +89,16 @@
 }
 
 .post .post-attachment {
+  cursor: pointer;
   margin-right: 0.5rem;
 }
 
 .post .post-attachment:not(.expanded) img.full {
   display: none;
+}
+
+.post .post-attachment.expanded img.full {
+  max-width: 100%;
 }
 
 .post .post-attachment.expanded img.thumbnail {
@@ -74,6 +108,7 @@
 .post .post-content {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   padding-top: 0.5rem;
   font-size: 0.825rem;
 }
@@ -81,7 +116,21 @@
 .post:target {
   border-color: #10c15c;
   box-shadow: 0 0 12px 8px rgba(0, 0, 0, 0.1);
+  top: 100px;
+  /* position: relative; */
 }
+
+/* .post:target::after {
+  content: 'Highlighted Reply';
+  font-size: 0.725rem;
+  position: absolute;
+  left: 0;
+  top: -2px;
+  transform: translateX(-100%);
+  background: #10c15c;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px 0 0 4px;
+} */
 
 .post-content .quote {
   color: #10c15c;

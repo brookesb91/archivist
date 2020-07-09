@@ -6,9 +6,21 @@ html(lang="en")
     title Archivist || #{thread.posts[0].semantic_url}
     link(rel="stylesheet", href="/styles/styles.css")
     link(rel="stylesheet", href="/styles/thread.css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
   body
 
     .thread-page
+      .thread-header
+        .links
+          a(href="/archive").link.back
+            i.material-icons chevron_left
+        .title
+          span.thread-board="/" + thread.board + "/"
+          span.thread-id=thread.thread
+      .thread-meta
+        span="Archived on "
+          time(datetime=thread.createdAt)=thread.createdAt
+        span="Updated on " + thread.updatedAt
       .thread
         .posts
           each post in thread.posts
@@ -27,6 +39,16 @@ html(lang="en")
               .post-content
                 if post.filename && post.tim
                   .post-attachment
-                    img.post-image(height=post.tn_h, width=post.tn_w src="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", alt="").thumbnail
-                    //- img.post-image(height=post.h, width=post.w src="https://i.4cdn.org/" + thread.board + "/" + post.tim + post.ext, alt="").full
+                    img.post-image(src="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", data-thumb="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", data-full="https://i.4cdn.org/" + thread.board + "/" + post.tim + post.ext, alt="", onclick="toggleImage(this)")
                 .post-comment!=post.com
+    script.
+      const toggleImage = (e) => {
+        const thumb = e.getAttribute('data-thumb');
+        const full = e.getAttribute('data-full');
+
+        if(e.src === thumb){
+          e.src = full;
+        } else {
+          e.src = thumb;
+        }
+      }

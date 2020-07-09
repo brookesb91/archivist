@@ -79,6 +79,8 @@ const threadSchema = new mongoose.Schema({
     // Archived UNIX timestamp
     archived_on: Number
   }],
+}, {
+  timestamps: true
 });
 
 const Thread = mongoose.model('Thread', threadSchema);

@@ -30,9 +30,11 @@ app.use(express.static(path.join(process.cwd(), 'public')));
 app.get('/', (req, res) => res.render('index'));
 
 app.get('/archive', async (req, res) => {
-  const {
-    offset = 0, limit = 10
-  } = req.params;
+
+  const page = req.query.page ? parseInt(req.query.page, 10) : 1;
+  const limit = req.query.limit ? parseInt(req.query.limit, 10) : 20;
+
+  const offset = limit * (page - 1);
 
   const query = {};
 
@@ -49,8 +51,21 @@ app.get('/archive', async (req, res) => {
     total: await Thread.countDocuments(query)
   };
 
+
+  const totalPages = threads.total / limit;
+
+  const pages = Array.from(new Array(Math.ceil(totalPages)), (val, index) => index + 1);
+
+  const pagination = {
+    limit,
+    pages,
+    current: page,
+    total: totalPages
+  };
+
   return res.render('archive', {
-    threads
+    threads,
+    pagination
   });
 });
 

@@ -63,3 +63,20 @@
   text-align: center;
   flex: 1;
 }
+
+.pages {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.pages .page {
+  margin: 0 0.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.pages .page.current {
+  color: #0000ee
+}
