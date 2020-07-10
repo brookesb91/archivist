@@ -50,7 +50,21 @@ String.prototype.toRGB = function () {
   return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
 };
 
+const contrastRGB = (rgb) => {
+  const color = rgb.split(/\(([^)]+)\)/)[1].replace(/ /g, '');
+  const r = parseInt(color.split(',')[0], 10),
+    g = parseInt(color.split(',')[1], 10),
+    b = parseInt(color.split(',')[2], 10);
+
+  var contrast = (Math.round(r * 299) + Math.round(g * 587) + Math.round(b * 114)) / 1000;
+
+  return (contrast >= 128) ? 'black' : 'white';
+};
+
 document.querySelectorAll('.post-id[data-id]').forEach(el => {
   const id = el.getAttribute('data-id');
-  el.style.backgroundColor = id.toRGB();
+  const background = id.toRGB();
+  const color = contrastRGB(background);
+  el.style.backgroundColor = background;
+  el.style.color = color;
 });

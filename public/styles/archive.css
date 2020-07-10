@@ -34,6 +34,7 @@
   color: white;
   font-size: 0.75rem;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .thread .thread-content:hover {
