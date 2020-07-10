@@ -8,13 +8,16 @@ const thread = async (req, res) => {
     id
   } = req.params;
 
-  const thread = await Thread.findOne({
+  const data = await Thread.findOne({
     board,
     thread: id
   });
 
   return res.render('thread', {
-    thread
+    page: {
+      title: data.posts[0].semantic_url
+    },
+    thread: data
   });
 };
 

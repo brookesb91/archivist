@@ -35,6 +35,9 @@ const archive = async (req, res) => {
   };
 
   return res.render('archive', {
+    page: {
+      title: 'Archive'
+    },
     threads,
     pagination
   });
