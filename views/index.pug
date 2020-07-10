@@ -1,5 +1,10 @@
-.home-page
+extends _layout
+
+block append styles
+  script(src="styles/home.css")
+
+block append content
   form(action="/save", method="POST")
-    fieldset
-      input(type="text", name="url", placeholder="Thread URL")
-    button(type="submit") Submit
+  fieldset
+    input(type="text", name="url", placeholder="Thread URL")
+  button(type="submit") Submit

@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Archivist || Archive
-    link(rel="stylesheet", href="/styles/styles.css")
-    link(rel="stylesheet", href="/styles/archive.css")
-  body
+extends _layout
 
-    .archive-page
+block append styles
+  link(rel="stylesheet", href="styles/archive.css")
+
+block append content
+  .archive-page
       .threads
         each thread in threads.items
           - var post = thread.posts[0];
