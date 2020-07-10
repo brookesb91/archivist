@@ -15,7 +15,8 @@ const toggleImage = (e) => {
 const quotes = document.querySelectorAll('.quotelink');
 
 quotes.forEach(quote => {
-  const id = quote.closest('.post').getAttribute('id').split('p')[1];
+  const post = quote.closest('.post');
+  const id = post.getAttribute('id').split('p')[1];
   const link = quote.href.split('#')[1];
   const target = document.querySelector(`#${link}`);
 
@@ -25,12 +26,62 @@ quotes.forEach(quote => {
     el.classList.add('reply-link');
     el.innerText = `>>${id}`;
     el.href = `#p${id}`;
+
+    let popover;
+
+    el.addEventListener('mouseenter', function () {
+      const position = getViewportOffset(this);
+      position.top += 24;
+      popover = showPopover(post, position);
+    });
+
+    el.addEventListener('mouseleave', function () {
+      if (popover) {
+        popover.destroy();
+      }
+    });
+
     replies.appendChild(el);
   } else {
     quote.removeAttribute('href');
     quote.style.textDecoration = 'line-through';
   }
 });
+
+const showPopover = (popover, position) => {
+  const el = popover.cloneNode(true);
+  el.classList.add('popover');
+  el.style.position = 'absolute';
+  el.style.top = `${position.top}px`;
+  el.style.left = `${position.left}px`;
+
+  document.body.appendChild(el);
+
+  return {
+    destroy: () => el.remove()
+  };
+};
+
+const getViewportOffset = (el) => {
+  var box = el.getBoundingClientRect();
+
+  var body = document.body;
+  var docEl = document.documentElement;
+
+  var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+  var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+  var clientTop = docEl.clientTop || body.clientTop || 0;
+  var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+  var top = box.top + scrollTop - clientTop;
+  var left = box.left + scrollLeft - clientLeft;
+
+  return {
+    top: Math.round(top),
+    left: Math.round(left)
+  };
+};
 
 /**
  * https://gist.github.com/0x263b/2bdd90886c2036a1ad5bcf06d6e6fb37
