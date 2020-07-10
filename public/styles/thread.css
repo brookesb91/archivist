@@ -117,21 +117,26 @@
   border-color: #10c15c;
   box-shadow: 0 0 12px 8px rgba(0, 0, 0, 0.1);
   top: 100px;
-  /* position: relative; */
 }
-
-/* .post:target::after {
-  content: 'Highlighted Reply';
-  font-size: 0.725rem;
-  position: absolute;
-  left: 0;
-  top: -2px;
-  transform: translateX(-100%);
-  background: #10c15c;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px 0 0 4px;
-} */
 
 .post-content .quote {
   color: #10c15c;
+}
+
+.post-replies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-top: 1px solid #333;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.post-replies:empty {
+  display: none;
+}
+
+.post-replies .reply-link {
+  margin-right: 0.5rem;
 }

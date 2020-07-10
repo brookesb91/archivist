@@ -39,9 +39,14 @@ html(lang="en")
               .post-content
                 if post.filename && post.tim
                   .post-attachment
-                    img.post-image(src="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", data-thumb="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", data-full="https://i.4cdn.org/" + thread.board + "/" + post.tim + post.ext, alt="", onclick="toggleImage(this)")
+                    img.post-image(src="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", data-thumb="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", data-full="https://is2.4chan.org/" + thread.board + "/" + post.tim + post.ext, alt="", onclick="toggleImage(this)")
                 .post-comment!=post.com
+
+              .post-replies
     script.
+      // TODO - Separate
+
+      // Toggles image size.
       const toggleImage = (e) => {
         const thumb = e.getAttribute('data-thumb');
         const full = e.getAttribute('data-full');
@@ -52,3 +57,25 @@ html(lang="en")
           e.src = thumb;
         }
       }
+
+      // Add reply links to posts
+      // TODO - Revise
+      const quotes = document.querySelectorAll('.quotelink');
+
+      quotes.forEach(quote => {
+        const id = quote.closest('.post').getAttribute('id').split('p')[1];
+        const link = quote.href.split('#')[1];
+        const target = document.querySelector(`#${link}`);
+
+        if (target) {
+          const replies = target.querySelector('.post-replies');
+          const el = document.createElement('a');
+          el.classList.add('reply-link');
+          el.innerText = `>>${id}`;
+          el.href = `#p${id}`;
+          replies.appendChild(el);
+        } else {
+          quote.removeAttribute('href');
+          quote.style.textDecoration = 'line-through';
+        }
+      });
