@@ -32,6 +32,9 @@ quotes.forEach(quote => {
   }
 });
 
+/**
+ * https://gist.github.com/0x263b/2bdd90886c2036a1ad5bcf06d6e6fb37
+ */
 String.prototype.toRGB = function () {
   var hash = 0;
   if (this.length === 0) return hash;
