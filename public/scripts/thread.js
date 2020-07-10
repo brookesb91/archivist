@@ -31,3 +31,23 @@ quotes.forEach(quote => {
     quote.style.textDecoration = 'line-through';
   }
 });
+
+String.prototype.toRGB = function () {
+  var hash = 0;
+  if (this.length === 0) return hash;
+  for (let i = 0; i < this.length; i++) {
+    hash = this.charCodeAt(i) + ((hash << 5) - hash);
+    hash = hash & hash;
+  }
+  var rgb = [0, 0, 0];
+  for (let i = 0; i < 3; i++) {
+    var value = (hash >> (i * 8)) & 255;
+    rgb[i] = value;
+  }
+  return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+};
+
+document.querySelectorAll('.post-id[data-id]').forEach(el => {
+  const id = el.getAttribute('data-id');
+  el.style.backgroundColor = id.toRGB();
+});
