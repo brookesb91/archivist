@@ -63,8 +63,9 @@ const showPopover = (popover, position) => {
 
   // Left needs to be amended if the element is too wide to stay on the screen
   // left + el.width > vw ? {reduce left by the difference (diff = (left + width) - vw)}
-  if ((position.left + el.offsetWidth) > document.body.offsetWidth) {
-    const diff = (position.left + el.offsetWidth) - document.body.offsetWidth;
+  const maxX = position.left + el.offsetWidth;
+  if (maxX > document.body.offsetWidth) {
+    const diff = maxX - document.body.offsetWidth;
     position.left -= diff;
   }
 
