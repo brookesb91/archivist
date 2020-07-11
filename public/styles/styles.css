@@ -24,3 +24,60 @@ body {
   scrollbar-width: none;
   /* Firefox */
 }
+
+fieldset {
+  -webkit-appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+input[type="text"] {
+  width: 100%;
+  color: white;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 30px;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  background: #222;
+}
+
+button.icon-button {
+  cursor: pointer;
+  appearance: none;
+  background: none;
+  border: 0;
+  color: inherit;
+}
+
+*:focus,
+*:active {
+  outline: none;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #333;
+  position: sticky;
+  top: 0;
+  padding: 0.5rem;
+  box-shadow: 0 2px 12px 4px rgba(0, 0, 0, 0.2);
+}
+
+.link-form {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+}
+
+.link-form fieldset {
+  flex: 1;
+  max-width: 500px;
+}

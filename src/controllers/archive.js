@@ -2,6 +2,10 @@ import {
   Thread
 } from '../models/thread.js';
 
+import {
+  paginate
+} from '../utils/pagination.js';
+
 const archive = async (req, res) => {
   const page = req.query.page ? parseInt(req.query.page, 10) : 1;
   const limit = req.query.limit ? parseInt(req.query.limit, 10) : 20;
@@ -9,6 +13,10 @@ const archive = async (req, res) => {
   const offset = limit * (page - 1);
 
   const query = {};
+
+  const order = {
+    createdAt: -1
+  };
 
   const projection = {
     board: 1,
@@ -19,19 +27,12 @@ const archive = async (req, res) => {
   };
 
   const threads = {
-    items: await Thread.find(query, projection).skip(offset).limit(limit),
+    items: await Thread
+      .find(query, projection)
+      .sort(order)
+      .skip(offset)
+      .limit(limit),
     total: await Thread.countDocuments(query)
-  };
-
-  const totalPages = threads.total / limit;
-
-  const pages = Array.from(new Array(Math.ceil(totalPages)), (val, index) => index + 1);
-
-  const pagination = {
-    limit,
-    pages,
-    current: page,
-    total: totalPages
   };
 
   return res.render('archive', {
@@ -39,7 +40,7 @@ const archive = async (req, res) => {
       title: 'Archive'
     },
     threads,
-    pagination
+    pagination: paginate(page, limit, threads.total)
   });
 };
 
