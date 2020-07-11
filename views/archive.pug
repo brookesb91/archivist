@@ -25,7 +25,7 @@ block append content
               .thread-images [I: #{post.images}]
               .thread-uniques [U: #{post.unique_ips}]
       .pagination
-        .pages
+        .pages 
           if pagination.previous
             a(href="?page=" + pagination.previous + "&limit=" + pagination.limit).page="[Previous]"
           each page in pagination.pages
