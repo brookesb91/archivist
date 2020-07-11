@@ -1,4 +1,16 @@
-form(action="/save", method="POST").link-form
+form(action="/save", method="POST", onsubmit="validate()").link-form
   fieldset
     input(type="text", name="url", placeholder="Enter URL to archive")
   button(type="submit").material-icons.icon-button save
+
+block append scripts
+  script(type="text/javascript").
+    const validate = () => {
+      const regex = /https?:\/\/boards.(4chan|4channel).org\/\w+\/thread\/\d+#?p?\d+/;
+      const input = document.querySelector('input[name="url"]');
+      input.classList.remove('invalid', 'valid');
+      const value = input.value;
+      const validated = regex.test(value);
+      input.classList.add(validated ? 'valid' : 'invalid');
+      return validated;
+    }

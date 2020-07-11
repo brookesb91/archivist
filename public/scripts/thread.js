@@ -1,3 +1,7 @@
+/**
+ * TODO Clean all this mess
+ */
+
 // Toggle image size between thumb and full
 const toggleImage = (e) => {
   const thumb = e.getAttribute('data-thumb');
@@ -53,9 +57,19 @@ const showPopover = (popover, position) => {
   el.classList.add('popover');
   el.style.position = 'absolute';
   el.style.top = `${position.top}px`;
-  el.style.left = `${position.left}px`;
 
+  el.style.visibility = 'hidden';
   document.body.appendChild(el);
+
+  // Left needs to be amended if the element is too wide to stay on the screen
+  // left + el.width > vw ? {reduce left by the difference (diff = (left + width) - vw)}
+  if ((position.left + el.offsetWidth) > document.body.offsetWidth) {
+    const diff = (position.left + el.offsetWidth) - document.body.offsetWidth;
+    position.left -= diff;
+  }
+
+  el.style.left = `${position.left}px`;
+  el.style.visibility = 'visible';
 
   return {
     destroy: () => el.remove()

@@ -25,10 +25,10 @@ block append content
               .thread-images [I: #{post.images}]
               .thread-uniques [U: #{post.unique_ips}]
       .pagination
-        .pages 
+        .pages
           if pagination.previous
-            a(href="?page=" + pagination.previous + "&limit=" + pagination.limit).page="[Previous]"
+            a(href="?page=" + pagination.previous + (query.board ? "&board=" + query.board : "")).page="[Previous]"
           each page in pagination.pages
-            a(href="?page=" + page + "&limit=" + pagination.limit class=(pagination.current === page ? 'current' : '')).page="[" + page + "]"
+            a(href="?page=" + page + (query.board ? "&board=" + query.board : "") class=(pagination.current === page ? 'current' : '')).page="[" + page + "]"
           if pagination.next
-            a(href="?page=" + pagination.next + "&limit=" + pagination.limit).page="[Next]"
+            a(href="?page=" + pagination.next + (query.board ? "&board=" + query.board : "")).page="[Next]"

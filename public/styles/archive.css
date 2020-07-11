@@ -87,22 +87,24 @@
   padding: 0.5rem;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
-.board {
+.boards .board {
   background: #222;
   color: white;
   text-decoration: none;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  font-size: 1rem;
-  line-height: 1rem;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
 }
 
-.board.active {
+.boards .board.active {
   background-color: #10c15c;
+  color: #222;
 }
 
-.board+.board {
+.boards .board+.board {
   margin-left: 0.25rem;
 }
