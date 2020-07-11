@@ -80,5 +80,29 @@
 }
 
 .pages .page.current {
-  color: #0000ee
+  color: #0000ee;
+}
+
+.boards {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.board {
+  background: #222;
+  color: white;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.board.active {
+  background-color: #10c15c;
+}
+
+.board+.board {
+  margin-left: 0.25rem;
 }

@@ -1,3 +1,5 @@
+include ./components/thread
+
 extends _layout
 
 block append styles
@@ -5,10 +7,9 @@ block append styles
 
 block append content
   .thread-page
-
     .thread-header
       .links
-        a(href="/archive").link.back
+        a(href="/").link.back
           i.material-icons chevron_left
       .title
         span.thread-board="/" + thread.board + "/"

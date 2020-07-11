@@ -1,0 +1,5 @@
+mixin thread(thread)
+  .thread
+    .posts
+      each post in thread.posts
+        +post(post)

@@ -5,6 +5,10 @@ block append styles
 
 block append content
   .archive-page
+      .boards
+        a(href="/" class=(!query.board ? 'active' : '')).board All
+        each board in boards
+          a(href="?board=" + board class=(query.board === board ? 'active' : '')).board=board
       .threads
         each thread in threads.items
           - var post = thread.posts[0];

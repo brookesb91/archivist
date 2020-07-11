@@ -14,6 +14,10 @@ const archive = async (req, res) => {
 
   const query = {};
 
+  if (typeof req.query.board !== 'undefined') {
+    query.board = req.query.board;
+  }
+
   const order = {
     createdAt: -1
   };
@@ -35,11 +39,15 @@ const archive = async (req, res) => {
     total: await Thread.countDocuments(query)
   };
 
+  const boards = await Thread.distinct('board');
+
   return res.render('archive', {
     page: {
       title: 'Archive'
     },
+    query,
     threads,
+    boards: boards.sort(),
     pagination: paginate(page, limit, threads.total)
   });
 };
