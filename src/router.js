@@ -4,9 +4,6 @@ import {
   archive
 } from './controllers/archive.js';
 import {
-  home
-} from './controllers/home.js';
-import {
   save
 } from './controllers/save.js';
 import {
@@ -15,8 +12,7 @@ import {
 
 const router = express.Router();
 
-router.get('/', home);
-router.get('/archive', archive);
+router.get('/', archive);
 router.get('/archive/:board/:id', thread);
 router.post('/save', save);
 

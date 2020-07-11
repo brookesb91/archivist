@@ -22,5 +22,9 @@ block append content
               .thread-uniques [U: #{post.unique_ips}]
       .pagination
         .pages
+          if pagination.previous
+            a(href="?page=" + pagination.previous + "&limit=" + pagination.limit).page="[Previous]"
           each page in pagination.pages
-            a(href="/archive?page=" + page + "&limit=" + pagination.limit class=(pagination.current === page ? 'current' : '')).page="[" + page + "]"
+            a(href="?page=" + page + "&limit=" + pagination.limit class=(pagination.current === page ? 'current' : '')).page="[" + page + "]"
+          if pagination.next
+            a(href="?page=" + pagination.next + "&limit=" + pagination.limit).page="[Next]"

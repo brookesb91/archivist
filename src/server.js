@@ -15,9 +15,19 @@ const host = config.get('host');
 
 const server = new http.Server(app);
 
-const start = () => server.listen(port, host, async () => {
+const start = (version) => server.listen(port, host, async () => {
+  config.set('version', version);
+
   await connectDb();
-  console.log(`Archivist server listening on ${host}:${port}`);
+
+  console.log(`
+    =========================================
+    Archivist server running
+    =========================================
+    Version: ${version}
+    Address: http://${host}:${port}
+    =========================================
+  `);
 });
 
 export {

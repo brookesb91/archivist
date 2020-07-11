@@ -11,9 +11,15 @@ const config = convict({
     default: 'development',
     env: 'NODE_ENV'
   },
+  version: {
+    doc: 'Running sem-version.',
+    format: String,
+    default: '0.0.0'
+  },
   host: {
     doc: 'Host address to bind.',
     // Convict 6.0 Bug?
+    // ipaddress type seems to be missing
     // format: 'ipaddress',
     format: String,
     default: '0.0.0.0',

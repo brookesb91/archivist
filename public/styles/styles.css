@@ -25,6 +25,20 @@ body {
   /* Firefox */
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+}
+
+::-webkit-scrollbar-thumb:hover {}
+
 fieldset {
   -webkit-appearance: none;
   border: 0;
