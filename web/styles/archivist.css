@@ -22,7 +22,6 @@
   --background-color: var(--color-black-1);
   --surface-color: var(--color-black-2);
   --text-color: var(--color-white-1);
-  --link-color: var(--color-blue);
 }
 
 html,
@@ -31,7 +30,7 @@ body {
 }
 
 body {
-  font: var(--font-family);
+  font-family: var(--font-family);
   font-size: var(--font-size);
   color: var(--text-color);
   background-color: var(--background-color);
@@ -58,7 +57,6 @@ image {
 
 a[href] {
   text-decoration: none;
-  color: var(--link-color);
 }
 
 ::-webkit-scrollbar {
@@ -213,6 +211,14 @@ a[href] {
   align-items: flex-end;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-evenly {
+  justify-content: space-evenly;
+}
+
 .font-sm {
   font-size: var(--font-size-sm);
 }
@@ -235,4 +241,16 @@ a[href] {
 
 .text-green {
   color: var(--color-green);
+}
+
+.bg-surface {
+  background-color: var(--surface-color);
+}
+
+.text-surface {
+  color: var(--surface-color);
+}
+
+.bg-green {
+  background-color: var(--color-green);
 }
