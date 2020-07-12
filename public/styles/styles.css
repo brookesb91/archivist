@@ -37,7 +37,8 @@ body {
   background: #222;
 }
 
-::-webkit-scrollbar-thumb:hover {}
+::-webkit-scrollbar-thumb:hover {
+}
 
 fieldset {
   -webkit-appearance: none;
@@ -47,7 +48,7 @@ fieldset {
   min-width: 0;
 }
 
-input[type="text"] {
+input[type='text'] {
   width: 100%;
   color: white;
   border: none;
@@ -60,8 +61,12 @@ input[type="text"] {
   background: #222;
 }
 
-input[type="text"].invalid {
+input[type='text'].invalid {
   border: 1px solid #ed1c24;
+}
+
+input[type='text'].valid {
+  border: 1px solid #10c15c;
 }
 
 button.icon-button {
@@ -84,16 +89,16 @@ button.icon-button {
   background: #333;
   position: sticky;
   top: 0;
+  z-index: 999;
   padding: 0.5rem;
   box-shadow: 0 2px 12px 4px rgba(0, 0, 0, 0.2);
 }
 
-.header>a {
+.header > a {
   color: inherit;
 }
 
-
-.header>*+* {
+.header > * + * {
   margin-left: 0.5rem;
 }
 

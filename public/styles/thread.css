@@ -56,7 +56,7 @@
   line-height: 0.75rem;
 }
 
-.post-meta>*:not(:last-child) {
+.post-meta > *:not(:last-child) {
   margin-right: 0.5rem;
 }
 
@@ -141,6 +141,7 @@
 }
 
 .popover {
+  border: 1px solid #ededed;
   max-width: 100%;
   box-shadow: 0 2px 12px 4px rgba(0, 0, 0, 0.2);
 }
