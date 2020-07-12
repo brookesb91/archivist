@@ -1,4 +1,4 @@
-form(action="/save", method="POST", onsubmit="validate()").link-form
+form(action="/save", method="POST", onsubmit="return validate()").link-form
   fieldset
     input(type="text", name="url", placeholder="Enter URL to archive")
   button(type="submit").material-icons.icon-button save
@@ -12,5 +12,9 @@ block append scripts
       const value = input.value;
       const validated = regex.test(value);
       input.classList.add(validated ? 'valid' : 'invalid');
+
+      if(!validated){
+        event.preventDefault();
+      }
       return validated;
     }

@@ -10,88 +10,33 @@ const toggleImage = (e) => {
   e.src = (e.src === thumb ? full : thumb);
 };
 
-// Add reply links to posts
-// TODO - Revise
-const quotes = document.querySelectorAll('.quotelink');
+const initQuotes = () => {
+  // Add reply links to posts
+  // TODO - Revise
+  const quotes = document.querySelectorAll('.quotelink');
 
-quotes.forEach(quote => {
-  const post = quote.closest('.post');
-  const id = post.getAttribute('id').split('p')[1];
-  const link = quote.href.split('#')[1];
-  const target = document.querySelector(`#${link}`);
+  quotes.forEach(quote => {
+    const post = quote.closest('.post');
+    const id = post.getAttribute('id').split('p')[1];
+    const link = quote.href.split('#')[1];
+    const target = document.querySelector(`#${link}`);
 
-  if (target) {
-    const replies = target.querySelector('.post-replies');
-    const el = document.createElement('a');
-    el.classList.add('reply-link');
-    el.innerText = `>>${id}`;
-    el.href = `#p${id}`;
+    if (target) {
+      const replies = target.querySelector('.post-replies');
+      const el = document.createElement('a');
+      el.classList.add('reply-link');
+      el.innerText = `${id}`;
+      el.href = `#p${id}`;
 
-    let popover;
+      new Popover(el, post); // --> Reply popup
+      new Popover(quote, target); // --> Quote popup
 
-    el.addEventListener('mouseenter', function () {
-      const position = getViewportOffset(this);
-      position.top += 24;
-      popover = showPopover(post, position);
-    });
-
-    el.addEventListener('mouseleave', function () {
-      if (popover) {
-        popover.destroy();
-      }
-    });
-
-    replies.appendChild(el);
-  } else {
-    quote.removeAttribute('href');
-    quote.style.textDecoration = 'line-through';
-  }
-});
-
-const showPopover = (popover, position) => {
-  const el = popover.cloneNode(true);
-  el.classList.add('popover');
-  el.style.position = 'absolute';
-  el.style.top = `${position.top}px`;
-
-  el.style.visibility = 'hidden';
-  document.body.appendChild(el);
-
-  // Left needs to be amended if the element is too wide to stay on the screen
-  // left + el.width > vw ? {reduce left by the difference (diff = (left + width) - vw)}
-  const maxX = position.left + el.offsetWidth;
-  if (maxX > document.body.offsetWidth) {
-    const diff = maxX - document.body.offsetWidth;
-    position.left -= diff;
-  }
-
-  el.style.left = `${position.left}px`;
-  el.style.visibility = 'visible';
-
-  return {
-    destroy: () => el.remove()
-  };
-};
-
-const getViewportOffset = (el) => {
-  var box = el.getBoundingClientRect();
-
-  var body = document.body;
-  var docEl = document.documentElement;
-
-  var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-  var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
-
-  var clientTop = docEl.clientTop || body.clientTop || 0;
-  var clientLeft = docEl.clientLeft || body.clientLeft || 0;
-
-  var top = box.top + scrollTop - clientTop;
-  var left = box.left + scrollLeft - clientLeft;
-
-  return {
-    top: Math.round(top),
-    left: Math.round(left)
-  };
+      replies.appendChild(el);
+    } else {
+      quote.removeAttribute('href');
+      quote.style.textDecoration = 'line-through';
+    }
+  });
 };
 
 /**
@@ -130,3 +75,7 @@ document.querySelectorAll('.post-id[data-id]').forEach(el => {
   el.style.backgroundColor = background;
   el.style.color = color;
 });
+
+window.onload = () => {
+  initQuotes();
+};
