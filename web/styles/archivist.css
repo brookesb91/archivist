@@ -138,6 +138,10 @@ a[href] {
   align-items: flex-end;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .font-sm {
   font-size: var(--font-size-sm);
 }
@@ -160,4 +164,20 @@ a[href] {
 
 .text-green {
   color: var(--color-green);
+}
+
+.bg-red {
+  background-color: var(--color-red);
+}
+
+.bg-green {
+  background-color: var(--color-green);
+}
+
+.bg-blue {
+  background-color: var(--color-blue);
+}
+
+.bg-surface {
+  background-color: var(--surface-color);
 }
