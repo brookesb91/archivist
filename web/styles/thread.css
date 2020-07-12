@@ -83,7 +83,6 @@
   font-size: 0.6rem;
   line-height: 0.6rem;
   padding: 2px 8px;
-  background: black;
   border-radius: 10px;
 }
 
@@ -145,3 +144,8 @@
   max-width: 100%;
   box-shadow: 0 2px 12px 4px rgba(0, 0, 0, 0.2);
 }
+
+/* a.quotelink,
+a.reply-link {
+  color: #7d8ca3;
+} */

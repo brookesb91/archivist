@@ -1,0 +1,163 @@
+:root {
+  --color-black-1: #333;
+  --color-black-2: #222;
+  --box-shadow: 0 0 12px 8px rgba(0, 0, 0, 0.1);
+  --color-white-1: #fff;
+  --color-white-2: #d3d3d3;
+  --color-green: #10c15c;
+  --color-red: #ed1c24;
+  --color-blue: #39a0ed;
+  --color-success: var(--color-green);
+  --color-error: var(--color-red);
+  --color-info: var(--color-blue);
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-size: 16px;
+  --font-size-sm: 0.75rem;
+  --font-size-xs: 0.6rem;
+  --spacing-sm: 0.25rem;
+  --spacing-md: 0.5rem;
+  --spacing-lg: 1rem;
+  --border-radius: 8px;
+  --background-color: var(--color-black-1);
+  --surface-color: var(--color-black-2);
+  --text-color: var(--color-white-1);
+  --link-color: var(--color-blue);
+}
+
+html,
+body {
+  box-sizing: border-box;
+}
+
+body {
+  font: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+}
+
+*:focus,
+*:active {
+  outline: none;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+a[href] {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+::-webkit-scrollbar {
+  /* width: 5px; */
+}
+
+::-webkit-scrollbar-track {
+  /* background: transparent; */
+}
+
+::-webkit-scrollbar-thumb {
+  /* background: #222; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.m-sm {
+  margin: var(--spacing-sm);
+}
+
+.m-md {
+  margin: var(--spacing-md);
+}
+
+.m-lg {
+  margin: var(--spacing-lg);
+}
+
+.p-sm {
+  padding: var(--spacing-sm);
+}
+
+.p-md {
+  padding: var(--spacing-md);
+}
+
+.p-lg {
+  padding: var(--spacing-lg);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1 1 100%;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.font-sm {
+  font-size: var(--font-size-sm);
+}
+
+.font-xs {
+  font-size: var(--font-size-xs);
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-red {
+  color: var(--color-red);
+}
+
+.text-blue {
+  color: var(--color-blue);
+}
+
+.text-green {
+  color: var(--color-green);
+}

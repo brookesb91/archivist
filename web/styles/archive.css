@@ -60,7 +60,7 @@
   justify-content: space-evenly;
 }
 
-.thread .thread-meta>* {
+.thread .thread-meta > * {
   text-align: center;
   flex: 1;
 }
@@ -80,7 +80,7 @@
 }
 
 .pages .page.current {
-  color: #0000ee;
+  color: #10c15c;
 }
 
 .boards {
@@ -105,6 +105,6 @@
   color: #222;
 }
 
-.boards .board+.board {
+.boards .board + .board {
   margin-left: 0.25rem;
 }
