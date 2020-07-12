@@ -2,6 +2,6 @@ include ./post
 
 mixin thread(thread)
   .thread
-    .posts
+    .posts.flex.flex-col.items-start.p-md.max-w-full
       each post in thread.posts
         +post(post)

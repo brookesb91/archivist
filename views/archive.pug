@@ -6,15 +6,14 @@ block append styles
 block append content
   .archive-page
       .boards.p-md.flex.flex-row.justify-center
-        a(href="/" class=(!query.board ? 'bg-surface' : '')).board.py-sm.px-md.rounded.font-sm All
+        a(href="/" class=(!query.board ? 'bg-surface font-bold' : '')).board.py-sm.px-md.rounded.font-sm All
         each board in boards
-          a(href="?board=" + board class=(query.board === board ? 'bg-surface' : '')).board.py-sm.px-md.rounded.font-sm=board
+          a(href="?board=" + board class=(query.board === board ? 'bg-surface font-bold' : '')).board.py-sm.px-md.rounded.font-sm=board
       .threads.flex.flex-row.flex-wrap.justify-center
         each thread in threads.items
           - var post = thread.posts[0];
-          .thread.flex.flex-col.items.items-center.justify-center.m-sm.p-md.font-sm.bg-surface.rounded
-            a(href="/archive/" + thread.board + "/" + thread.thread)
-              img.thread-image(height=post.tn_h / 2, width=post.tn_w / 2 src="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", alt="").thumbnail
+          a(href="/archive/" + thread.board + "/" + thread.thread).thread.flex.flex-col.items.items-center.justify-center.m-sm.p-md.font-sm.bg-surface.rounded
+            img.thread-image(height=post.tn_h / 2, width=post.tn_w / 2 src="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", alt="").thumbnail
             .thread-name.font-bold.text-green=post.name
             if post.sub
               .thread-subject.font-bold.text-red=post.sub

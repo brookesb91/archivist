@@ -6,11 +6,11 @@ block append styles
 
 block append content
   .thread-page
-    .thread-header
+    .thread-header.p-lg.flex.flex-row.items-center.font-bold
       .title
         span.thread-board="/" + thread.board + "/"
         span.thread-id=thread.thread
-    .thread-meta
+    .thread-meta.p-lg.flex.flex-col.items-center.items-start.font-sm
       span="Archived on "
         time(datetime=thread.createdAt)=thread.createdAt
       span="Updated on " + thread.updatedAt
