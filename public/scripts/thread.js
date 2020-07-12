@@ -7,11 +7,7 @@ const toggleImage = (e) => {
   const thumb = e.getAttribute('data-thumb');
   const full = e.getAttribute('data-full');
 
-  if (e.src === thumb) {
-    e.src = full;
-  } else {
-    e.src = thumb;
-  }
+  e.src = (e.src === thumb ? full : thumb);
 };
 
 // Add reply links to posts
