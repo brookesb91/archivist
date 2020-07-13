@@ -19,22 +19,25 @@ const initQuotes = () => {
     const post = quote.closest('.post');
     const id = post.getAttribute('id').split('p')[1];
     const link = quote.href.split('#')[1];
-    const target = document.querySelector(`#${link}`);
 
-    if (target) {
-      const replies = target.querySelector('.post-replies');
-      const el = document.createElement('a');
-      el.classList.add('reply-link');
-      el.innerText = `${id}`;
-      el.href = `#p${id}`;
+    if (/\d+/.test(link)) {
+      const target = document.querySelector(`#${link}`);
 
-      new Popover(el, post); // --> Reply popup
-      new Popover(quote, target); // --> Quote popup
+      if (target) {
+        const replies = target.querySelector('.post-replies');
+        const el = document.createElement('a');
+        el.classList.add('reply-link');
+        el.innerText = `${id}`;
+        el.href = `#p${id}`;
 
-      replies.appendChild(el);
-    } else {
-      quote.removeAttribute('href');
-      quote.style.textDecoration = 'line-through';
+        new Popover(el, post); // --> Reply popup
+        new Popover(quote, target); // --> Quote popup
+
+        replies.appendChild(el);
+      } else {
+        quote.removeAttribute('href');
+        quote.style.textDecoration = 'line-through';
+      }
     }
   });
 };
@@ -78,4 +81,8 @@ document.querySelectorAll('.post-id[data-id]').forEach(el => {
 
 window.onload = () => {
   initQuotes();
+
+  document.querySelectorAll('.prettyprint').forEach(block => {
+    hljs.highlightBlock(block);
+  });
 };
