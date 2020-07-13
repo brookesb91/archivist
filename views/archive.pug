@@ -12,22 +12,26 @@ block append content
       .threads.flex.flex-row.flex-wrap.justify-center
         each thread in threads.items
           - var post = thread.posts[0];
-          a(href="/archive/" + thread.board + "/" + thread.thread).thread.flex.flex-col.items.items-center.justify-center.m-sm.p-md.font-sm.bg-surface.rounded
-            img.thread-image(height=post.tn_h / 2, width=post.tn_w / 2 src="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", alt="").thumbnail
+          .thread.flex.flex-col.items-center.justify-center.m-sm.p-md.font-sm.bg-surface.rounded
+            a(href="/archive/" + thread.board + "/" + thread.thread)
+              img.thread-image(height=post.tn_h / 2, width=post.tn_w / 2 src="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", alt="").thumbnail
             .thread-name.font-bold.text-green=post.name
+
             if post.sub
               .thread-subject.font-bold.text-red=post.sub
+
             if post.com
-              .thread-content.no-scrollbars.font-sm!=post.com
+              .thread-content.font-sm!=post.com
+
             .thread-meta.w-full.text-green.flex.flex-row.items-center
               .thread-replies [R: #{post.replies}]
               .thread-images [I: #{post.images}]
               .thread-uniques [U: #{post.unique_ips}]
       .pagination
-        .pages.p-md.flex.flex-row.items-center.justify-center
+        .pages.p-lg.flex.flex-row.items-center.justify-center
           if pagination.previous
-            a(href="?page=" + pagination.previous + (query.board ? "&board=" + query.board : "")).page.my-md="[Previous]"
+            a(href="?page=" + pagination.previous + (query.board ? "&board=" + query.board : "")).page.mx-md="[Previous]"
           each page in pagination.pages
-            a(href="?page=" + page + (query.board ? "&board=" + query.board : "") class=(pagination.current === page ? 'text-green' : '')).page.my-md="[" + page + "]"
+            a(href="?page=" + page + (query.board ? "&board=" + query.board : "") class=(pagination.current === page ? 'text-green' : '')).page.mx-md="[" + page + "]"
           if pagination.next
-            a(href="?page=" + pagination.next + (query.board ? "&board=" + query.board : "")).page.my-md="[Next]"
+            a(href="?page=" + pagination.next + (query.board ? "&board=" + query.board : "")).page.mx-md="[Next]"

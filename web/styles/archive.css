@@ -16,11 +16,11 @@
   padding-top: 0.25rem;
 }
 
-.thread .thread-meta > * {
+.thread .thread-meta>* {
   text-align: center;
   flex: 1;
 }
 
-.boards .board + .board {
+.boards .board+.board {
   margin-left: 0.25rem;
 }

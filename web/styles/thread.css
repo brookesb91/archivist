@@ -5,7 +5,7 @@
   border-style: solid;
 }
 
-.post-meta > *:not(:last-child) {
+.post-meta>*:not(:last-child) {
   margin-right: var(--spacing-md);
 }
 
@@ -53,6 +53,7 @@
 
 .post-replies .reply-link {
   margin-right: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 .popover {
