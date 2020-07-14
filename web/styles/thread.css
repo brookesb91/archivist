@@ -1,17 +1,17 @@
 .post {
   margin-bottom: var(--spacing-md);
-  border-width: 2px;
+  border-width: var(--border-width);
   border-color: transparent;
-  border-style: solid;
+  border-style: var(--border-style);
 }
 
-.post-meta>*:not(:last-child) {
+.post-meta > *:not(:last-child) {
   margin-right: var(--spacing-md);
 }
 
 .post-meta .post-time,
 .thread-meta {
-  color: var(--color-white-2);
+  color: var(--post-meta-color);
 }
 
 .post-meta .post-id {
@@ -29,20 +29,20 @@
 }
 
 .post:target {
-  border-color: var(--color-blue);
+  border-color: var(--post-active-border-color);
 }
 
 .post-content .quote {
-  color: var(--color-green);
+  color: var(--post-quote-color);
 }
 
 .post-content .quotelink,
 .post-replies {
-  color: var(--color-blue);
+  color: var(--post-reply-color);
 }
 
 .post-replies {
-  border-top: 1px solid var(--color-black-1);
+  border-top: 1px var(--border-style) var(--background-color);
   margin-top: var(--spacing-md);
   padding-top: var(--spacing-md);
 }
@@ -57,7 +57,7 @@
 }
 
 .popover {
-  border: 1px solid var(--color-white-2);
+  border: var(--border-width) var(--border-style) var(--border-color);
   max-width: 100%;
   box-shadow: var(--box-shadow);
 }

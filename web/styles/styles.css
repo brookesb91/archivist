@@ -8,15 +8,15 @@ input[type='text'] {
   height: 30px;
   padding: 0 1rem;
   border-radius: 1rem;
-  background: #222;
+  background: var(--background-color);
 }
 
 input[type='text'].invalid {
-  border: 1px solid #ed1c24;
+  border: 1px solid var(--color-error);
 }
 
 input[type='text'].valid {
-  border: 1px solid #10c15c;
+  border: 1px solid var(--color-success);
 }
 
 button.icon-button {
@@ -31,20 +31,20 @@ button.icon-button {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #333;
+  background: var(--surface-color);
   position: sticky;
   top: 0;
   z-index: 999;
-  padding: 0.5rem;
-  box-shadow: 0 2px 12px 4px rgba(0, 0, 0, 0.2);
+  padding: var(--spacing-md);
+  box-shadow: var(--box-shadow);
 }
 
-.header>a {
+.header > a {
   color: inherit;
 }
 
-.header>*+* {
-  margin-left: 0.5rem;
+.header > * + * {
+  margin-left: var(--spacing-md);
 }
 
 .link-form {

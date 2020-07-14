@@ -19,15 +19,25 @@
   --spacing-sm: 0.25rem;
   --spacing-md: 0.5rem;
   --spacing-lg: 1rem;
+  --border-color: var(--color-white-2);
   --border-radius: 8px;
+  --border-width: 2px;
+  --border-style: solid;
   --background-color: var(--color-black-1);
   --surface-color: var(--color-black-2);
   --text-color: var(--color-white-1);
+  --link-color: var(--color-blue);
+  --link-active-color: var(--color-green);
+  --post-meta-color: var(--color-white-2);
+  --post-active-border-color: var(--color-blue);
+  --post-quote-color: var(--color-green);
+  --post-reply-color: var(--color-blue);
 }
 
 html,
 body {
   box-sizing: border-box;
+  max-height: 100vh;
 }
 
 body {
@@ -37,6 +47,15 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+main {
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 *:focus,
@@ -58,8 +77,12 @@ image {
 }
 
 a {
-  color: inherit;
+  color: var(--link-color);
   text-decoration: none;
+}
+
+a.active {
+  color: var(--link-active-color);
 }
 
 ::-webkit-scrollbar {
