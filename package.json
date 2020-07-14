@@ -1,7 +1,7 @@
 {
   "name": "archivist",
   "version": "1.0.0",
-  "description": "",
+  "description": "An archival tool",
   "main": "main.js",
   "type": "module",
   "scripts": {
@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ben Brookes",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
