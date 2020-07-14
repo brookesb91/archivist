@@ -2,14 +2,20 @@
 
 Thread archival tool and CMS.
 
-[Prerequisites](#prerequisites)
+- [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
+- [Features](#features)
+- [API](#api)
+- [Environment Variables](#environent)
 
-<a name="prerequisites">
-  ## Prerequisites
-</a>
+<a name="prerequisites"></a>
+
+## Prerequisites
 
 1. [NodeJS](https://nodejs.org/en/) - JavaScript runtime
 2. [MongoDB](https://www.mongodb.com/) - Database
+
+<a name="quick-start"></a>
 
 ## Quick Start
 
@@ -39,6 +45,8 @@ npm run start
 
 Open a browser and navigate to the app. By default, the server is available at `localhost:3000`
 
+<a name="features"></a>
+
 ## Features
 
 ### Done
@@ -60,6 +68,8 @@ Open a browser and navigate to the app. By default, the server is available at `
 
 > \*For boards that support this feature
 
+<a name="api"></a>
+
 ## API
 
 > All paths are relative to the configured base URL.
@@ -69,6 +79,8 @@ Open a browser and navigate to the app. By default, the server is available at `
 | `GET`  | `/`                       | Archive catalog view                |
 | `GET`  | `/archive/:board/:thread` | Thread view                         |
 | `POST` | `/save`                   | Archive a thread from the given URL |
+
+<a name="environment"></a>
 
 ## Environment Variables
 
