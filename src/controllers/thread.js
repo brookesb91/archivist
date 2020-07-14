@@ -1,29 +1,21 @@
-import {
-  Thread
-} from '../models/thread.js';
+import { Thread } from '../models/thread.js';
+import { features } from '../models/features.js';
 
 const thread = async (req, res) => {
-  const {
-    board,
-    id
-  } = req.params;
+  const { board, id } = req.params;
 
   const data = await Thread.findOne({
     board,
-    thread: id
+    thread: id,
   });
 
   return res.render('thread', {
     page: {
       title: data.posts[0].semantic_url,
-      features: {
-        code: ['g'].includes(data.board)
-      }
+      features: features(data.board),
     },
-    thread: data
+    thread: data,
   });
 };
 
-export {
-  thread
-};
+export { thread };
