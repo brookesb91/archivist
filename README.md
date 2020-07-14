@@ -61,6 +61,8 @@ Open a browser and navigate to the app. By default, the server is available at `
 
 ## Environment Variables
 
+> Create a .env file in the project root to override values.
+
 | Name        | Description            | Default                         |
 | ----------- | ---------------------- | ------------------------------- |
 | NODE_ENV    | Node environment       | `development`                   |
