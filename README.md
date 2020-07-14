@@ -92,3 +92,9 @@ Open a browser and navigate to the app. By default, the server is available at `
 | PORT        | Server port            | `3000`                          |
 | HOST        | Server host            | `localhost`                     |
 | MONGODB_URI | MongoDb connection URI | `mongodb://localhost/archivist` |
+
+## Screenshots
+
+![Archive](screenshots/archive.jpg)
+
+![Thread](screenshots/thread.jpg)
