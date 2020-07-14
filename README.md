@@ -6,7 +6,7 @@ Thread archival tool and CMS.
 - [Quick Start](#quick-start)
 - [Features](#features)
 - [API](#api)
-- [Environment Variables](#environent)
+- [Environment Variables](#environment)
 
 <a name="prerequisites"></a>
 
