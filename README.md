@@ -2,7 +2,11 @@
 
 Thread archival tool and CMS.
 
-## Prerequisites
+[Prerequisites](#prerequisites)
+
+<a name="prerequisites">
+  ## Prerequisites
+</a>
 
 1. [NodeJS](https://nodejs.org/en/) - JavaScript runtime
 2. [MongoDB](https://www.mongodb.com/) - Database
