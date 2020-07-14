@@ -4,6 +4,9 @@ include ./components/thread
 block append styles
   link(rel="stylesheet", href="/styles/thread.css")
 
+  if page.features.code
+    link(rel="stylesheet", href="/vendor/highlight/styles/dracula.css")
+
 block append content
   .thread-page
     .thread-header.p-lg.flex.flex-row.items-center.font-bold
@@ -19,3 +22,8 @@ block append content
 block append scripts
   script(src="/scripts/thread.js", type="text/javascript")
   script(src="/scripts/popover.js", type="text/javascript")
+
+  if page.features.code
+    script(src="/vendor/highlight/highlight.pack.js", type="text/javascript")
+    script(type="text/javascript").
+      document.querySelectorAll('.prettyprint').forEach(block => hljs.highlightBlock(block));

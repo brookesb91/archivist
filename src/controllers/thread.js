@@ -15,7 +15,10 @@ const thread = async (req, res) => {
 
   return res.render('thread', {
     page: {
-      title: data.posts[0].semantic_url
+      title: data.posts[0].semantic_url,
+      features: {
+        code: ['g'].includes(data.board)
+      }
     },
     thread: data
   });

@@ -1,7 +1,3 @@
-/**
- * TODO Clean all this mess
- */
-
 // Toggle image size between thumb and full
 const toggleImage = (e) => {
   const thumb = e.getAttribute('data-thumb');
@@ -11,8 +7,6 @@ const toggleImage = (e) => {
 };
 
 const initQuotes = () => {
-  // Add reply links to posts
-  // TODO - Revise
   const quotes = document.querySelectorAll('.quotelink');
 
   quotes.forEach(quote => {
@@ -20,14 +14,15 @@ const initQuotes = () => {
     const id = post.getAttribute('id').split('p')[1];
     const link = quote.href.split('#')[1];
 
-    if (/\d+/.test(link)) {
+    // Valid post link eg. `p123456`
+    if (/[p]\d+$/.test(link)) {
       const target = document.querySelector(`#${link}`);
 
       if (target) {
         const replies = target.querySelector('.post-replies');
         const el = document.createElement('a');
         el.classList.add('reply-link');
-        el.innerText = `${id}`;
+        el.innerText = `>>${id}`;
         el.href = `#p${id}`;
 
         new Popover(el, post); // --> Reply popup
@@ -81,8 +76,4 @@ document.querySelectorAll('.post-id[data-id]').forEach(el => {
 
 window.onload = () => {
   initQuotes();
-
-  document.querySelectorAll('.prettyprint').forEach(block => {
-    hljs.highlightBlock(block);
-  });
 };
