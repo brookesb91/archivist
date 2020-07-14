@@ -42,12 +42,19 @@ Open a browser and navigate to the app. By default, the server is available at `
 - [x] Reply hover preview
 - [x] Quote hover preview
 - [x] Quote anchors
-- [x] Colourised poster IDs (For boards that support it)
-- [x] Code formatting (For boards that support it)
+- [x] Colourised poster IDs\*
+- [x] Country flags\*
+- [x] Code formatting\*
 
 ### To Do
 
 - [ ] Full archival of thread images
+- [ ] Math formatting\*
+- [ ] Flash embed\*
+- [ ] Reverse image search
+- [ ] Thread & post deletion
+
+> \*For boards that support this feature
 
 ## API
 
