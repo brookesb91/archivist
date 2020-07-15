@@ -1,3 +1,5 @@
+include attachment
+
 mixin post(post)
   .post(id="p" + post.no).bg-surface.py-md.px-lg.rounded
     .post-meta.flex.flex-row.items-center.font-sm
@@ -13,8 +15,7 @@ mixin post(post)
 
     .post-content.flex.flex-row.flex-wrap.font-md
       if post.filename && post.tim
-        .post-attachment
-          img.post-image(src="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", data-thumb="https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg", data-full="https://is2.4chan.org/" + thread.board + "/" + post.tim + post.ext, alt="", onclick="toggleImage(this)")
+        +attachment(post)
       .post-comment!=post.com
 
     .post-replies.flex.flex-row.flex-wrap.font-sm

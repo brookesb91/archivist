@@ -1,0 +1,20 @@
+mixin attachment(post)
+  - var thumb = "https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg";
+  - var url = "https://is2.4chan.org/" + thread.board + "/" + post.tim + post.ext;
+  .post-attachment
+    case post.ext
+
+      when '.png'
+      when '.jpg'
+      when '.jpeg'
+      when '.gif'
+        img.post-image(src=thumb, data-thumb=thumb, data-full=url, alt="", onclick="toggleImage(this)")
+        - break
+
+      when '.webm'
+        video(controls, width="250").post-video
+          source(src=url type="video/webm")
+        - break
+
+      when '.flv'
+        - break
