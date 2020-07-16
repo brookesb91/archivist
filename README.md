@@ -58,14 +58,14 @@ Open a browser and navigate to the app. By default, the server is available at `
 - [x] Colourised poster IDs\*
 - [x] Country flags\*
 - [x] Code formatting\*
+- [x] Full archival of thread images
 
 ### To Do
 
-- [ ] Full archival of thread images
 - [ ] Math formatting\*
 - [ ] Flash embed\*
 - [ ] Reverse image search
-- [ ] Thread & post deletion
+- [ ] Thread & post \*\*UD
 
 > \*For boards that support this feature
 
