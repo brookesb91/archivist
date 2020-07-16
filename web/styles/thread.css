@@ -32,12 +32,17 @@
   border-color: var(--post-active-border-color);
 }
 
+.post-content .post-comment {
+  flex: 1;
+}
+
 .post-content .quote {
   color: var(--post-quote-color);
 }
 
 .post-content .quotelink,
 .post-replies {
+  font-family: monospace;
   color: var(--post-reply-color);
 }
 
@@ -60,4 +65,8 @@
   border: var(--border-width) var(--border-style) var(--border-color);
   max-width: 100%;
   box-shadow: var(--box-shadow);
+}
+
+figure {
+  font-size: 0.35rem;
 }

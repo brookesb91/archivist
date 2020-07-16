@@ -1,26 +1,21 @@
 import http from 'http';
 
-import {
-  app
-} from './app.js';
-import {
-  config
-} from './config.js';
-import {
-  connectDb
-} from './database.js';
+import { app } from './app.js';
+import { config } from './config.js';
+import { connectDb } from './database.js';
 
 const port = config.get('port');
 const host = config.get('host');
 
 const server = new http.Server(app);
 
-const start = (version) => server.listen(port, host, async () => {
-  config.set('version', version);
+const start = (version) =>
+  server.listen(port, host, async () => {
+    config.set('version', version);
 
-  await connectDb();
+    await connectDb();
 
-  console.log(`
+    console.log(`
     =========================================
     Archivist server running
     =========================================
@@ -28,8 +23,6 @@ const start = (version) => server.listen(port, host, async () => {
     Address: http://${host}:${port}
     =========================================
   `);
-});
+  });
 
-export {
-  start
-};
+export { start };

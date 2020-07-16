@@ -2,7 +2,7 @@ include attachment
 
 mixin post(post)
   .post(id="p" + post.no).bg-surface.py-md.px-lg.rounded
-    .post-meta.flex.flex-row.items-center.font-sm
+    .post-meta.flex.flex-row.items-center.font-sm.flex-no-wrap
       if post.country
         img.post-flag(src="https://www.countryflags.io/" + post.country + "/flat/16.png")
       .post-name.text-green.font-bold=post.name

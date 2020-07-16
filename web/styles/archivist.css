@@ -43,7 +43,7 @@ body {
 body {
   font-family: var(--font-family);
   font-size: var(--font-size);
-  line-height: 1rem;
+  line-height: 1.5rem;
   color: var(--text-color);
   background-color: var(--background-color);
   margin: 0;
@@ -221,6 +221,18 @@ a.active {
   flex-wrap: wrap;
 }
 
+.flex-no-wrap {
+  flex-wrap: nowrap;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
 .items-center {
   align-items: center;
 }
@@ -242,17 +254,14 @@ a.active {
 }
 
 .font-md {
-  line-height: var(--font-size-md);
   font-size: var(--font-size-md);
 }
 
 .font-sm {
-  line-height: var(--font-size-sm);
   font-size: var(--font-size-sm);
 }
 
 .font-xs {
-  line-height: var(--font-size-xs);
   font-size: var(--font-size-xs);
 }
 
@@ -270,6 +279,14 @@ a.active {
 
 .text-green {
   color: var(--color-green);
+}
+
+.text-white-1 {
+  color: var(--color-white-1);
+}
+
+.text-white-2 {
+  color: var(--color-white-2);
 }
 
 .bg-surface {

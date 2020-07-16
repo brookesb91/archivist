@@ -1,9 +1,7 @@
 mixin attachment(post)
-  //- - var thumb = "https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg";
-  //- - var url = "https://is2.4chan.org/" + thread.board + "/" + post.tim + post.ext;
   - var thumb = BASE_URL + "/static/" + thread.board + "/" + thread.thread + "/" + post.tim + "s.jpg";
   - var url = BASE_URL + "/static/"  + thread.board + "/" + thread.thread + "/" + post.tim + post.ext;
-  .post-attachment
+  .post-attachment.flex.flex-col.items-center
     case post.ext
 
       when '.png'
@@ -20,3 +18,6 @@ mixin attachment(post)
 
       when '.flv'
         - break
+
+    figure.font-xs.text-white-2=post.filename + post.ext + " "
+      span="(" + (post.fsize / 1000).toFixed() + "kb)"
