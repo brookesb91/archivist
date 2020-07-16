@@ -8,16 +8,7 @@ block append styles
     link(rel="stylesheet", href="/vendor/highlight/styles/dracula.css")
 
 block append content
-  .thread-page
-    .thread-header.p-lg.flex.flex-row.items-center.font-bold
-      .title
-        span.thread-board="/" + thread.board + "/"
-        span.thread-id=thread.thread
-    .thread-meta.p-lg.flex.flex-col.items-center.items-start.font-sm
-      span="Archived on "
-        time(datetime=thread.createdAt)=thread.createdAt
-      span="Updated on " + thread.updatedAt
-    +thread(thread)
+  +thread(thread)
 
 block append scripts
   script(src="/scripts/thread.js", type="text/javascript")

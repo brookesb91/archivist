@@ -5,13 +5,29 @@
   border-style: var(--border-style);
 }
 
-.post-meta > *:not(:last-child) {
+.post-meta>*:not(:last-child) {
   margin-right: var(--spacing-md);
 }
 
 .post-meta .post-time,
 .thread-meta {
   color: var(--post-meta-color);
+}
+
+.thread-tools>*+*,
+.thread-meta>*+*,
+.thread-links>*+* {
+  margin-left: var(--spacing-md);
+}
+
+.thread-links a {
+  text-transform: uppercase;
+}
+
+.thread-tools {
+  background: var(--surface-color);
+  position: sticky;
+  bottom: 0;
 }
 
 .post-meta .post-id {

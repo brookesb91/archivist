@@ -33,8 +33,12 @@ export const ChanService = {
         continue;
       }
 
-      await DownloadService.download(`https://i.4cdn.org/${board}/${post.tim}s.jpg`, `${board}/${thread}`, `${post.tim}s.jpg`);
-      await DownloadService.download(`https://is2.4chan.org/${board}/${post.tim}${post.ext}`, `${board}/${thread}`, `${post.tim}${post.ext}`);
+      try {
+        await DownloadService.download(`https://i.4cdn.org/${board}/${post.tim}s.jpg`, `${board}/${thread}`, `${post.tim}s.jpg`);
+        await DownloadService.download(`https://is2.4chan.org/${board}/${post.tim}${post.ext}`, `${board}/${thread}`, `${post.tim}${post.ext}`);
+      } catch (e) {
+        continue;
+      }
     }
   }
 };

@@ -1,7 +1,9 @@
 include ./post
+include ./thread-tools
 
 mixin thread(thread)
   .thread
     .posts.flex.flex-col.items-start.p-md.max-w-full
       each post in thread.posts
         +post(post)
+    +thread-tools(thread)

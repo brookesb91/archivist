@@ -27,23 +27,30 @@ button.icon-button {
   color: inherit;
 }
 
+main {
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .header {
   display: flex;
+  width: 100%;
   flex-direction: row;
   align-items: center;
   background: var(--surface-color);
-  position: sticky;
-  top: 0;
+  /* position: fixed;
+  top: 0; */
   z-index: 999;
   padding: var(--spacing-md);
   box-shadow: var(--box-shadow);
 }
 
-.header > a {
+.header>a {
   color: inherit;
 }
 
-.header > * + * {
+.header>*+* {
   margin-left: var(--spacing-md);
 }
 

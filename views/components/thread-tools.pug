@@ -1,0 +1,11 @@
+mixin thread-tools(thread)
+  .thread-tools.p-lg.flex.flex-row.items-center.font-bold.font-sm.box-shadow
+    .title
+      span.thread-board="/" + thread.board + "/"
+      span.thread-id=thread.thread
+    .thread-links
+      a(href="#top") Top
+      a(href="#bottom") Bottom
+    .thread-meta.flex.flex-row.items-center.items-start
+      span="Archived on " + thread.createdAt
+      span="Updated on " + thread.updatedAt

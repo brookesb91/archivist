@@ -6,6 +6,10 @@ import {
   paginate
 } from '../utils/pagination.js';
 
+import {
+  config
+} from '../config.js';
+
 const archive = async (req, res) => {
   const page = req.query.page ? parseInt(req.query.page, 10) : 1;
   const limit = req.query.limit ? parseInt(req.query.limit, 10) : 20;
@@ -42,6 +46,7 @@ const archive = async (req, res) => {
   const boards = await Thread.distinct('board');
 
   return res.render('archive', {
+    BASE_URL: `http://${config.get('host')}:${config.get('port')}`,
     page: {
       title: 'Archive'
     },
