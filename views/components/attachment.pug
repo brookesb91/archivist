@@ -1,6 +1,8 @@
 mixin attachment(post)
-  - var thumb = "https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg";
-  - var url = "https://is2.4chan.org/" + thread.board + "/" + post.tim + post.ext;
+  //- - var thumb = "https://i.4cdn.org/" + thread.board + "/" + post.tim + "s.jpg";
+  //- - var url = "https://is2.4chan.org/" + thread.board + "/" + post.tim + post.ext;
+  - var thumb = BASE_URL + "/static/" + thread.board + "/" + thread.thread + "/" + post.tim + "s.jpg";
+  - var url = BASE_URL + "/static/"  + thread.board + "/" + thread.thread + "/" + post.tim + post.ext;
   .post-attachment
     case post.ext
 

@@ -1,8 +1,19 @@
-import { Thread } from '../models/thread.js';
-import { features } from '../models/features.js';
+import {
+  Thread
+} from '../models/thread.js';
+import {
+  features
+} from '../models/features.js';
+
+import {
+  config
+} from '../config.js';
 
 const thread = async (req, res) => {
-  const { board, id } = req.params;
+  const {
+    board,
+    id
+  } = req.params;
 
   const data = await Thread.findOne({
     board,
@@ -10,6 +21,7 @@ const thread = async (req, res) => {
   });
 
   return res.render('thread', {
+    BASE_URL: `http://${config.get('host')}:${config.get('port')}`,
     page: {
       title: data.posts[0].semantic_url,
       features: features(data.board),
@@ -18,4 +30,6 @@ const thread = async (req, res) => {
   });
 };
 
-export { thread };
+export {
+  thread
+};
