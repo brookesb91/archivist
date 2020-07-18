@@ -1,10 +1,12 @@
 .threads .thread {
   text-align: center;
   width: 180px;
+  height: 320px;
   max-height: 320px;
 }
 
 .thread .thread-content {
+  flex: 1;
   overflow: hidden;
   max-width: 100%;
 }
@@ -17,11 +19,11 @@
   padding-top: 0.25rem;
 }
 
-.thread .thread-meta>* {
+.thread .thread-meta > * {
   text-align: center;
   flex: 1;
 }
 
-.boards .board+.board {
+.boards .board + .board {
   margin-left: 0.25rem;
 }
