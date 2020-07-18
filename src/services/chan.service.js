@@ -16,7 +16,7 @@ export const ChanService = {
         }
       });
 
-      await this.downloadImages(board, thread, res.data);
+      await this.downloadAttachments(board, thread, res.data);
 
       return res.data;
 
@@ -25,15 +25,16 @@ export const ChanService = {
     }
   },
 
-  async downloadImages(board, thread, data) {
-    for (let i = 0; i < data.posts.length; i++) {
-      const post = data.posts[i];
+  async downloadAttachments(board, thread, data) {
 
-      if (!post.filename) {
-        continue;
-      }
+    const posts = data.posts.filter(x => x.filename);
+    const total = posts.length;
+
+    for (let i = 0; i < total; i++) {
+      const post = posts[i];
 
       try {
+        console.log(`Downloading ${i+1} of ${total} attachments [${post.filename}${post.ext}](${post.fsize} bytes)`);
         await DownloadService.download(`https://i.4cdn.org/${board}/${post.tim}s.jpg`, `${board}/${thread}`, `${post.tim}s.jpg`);
         await DownloadService.download(`https://is2.4chan.org/${board}/${post.tim}${post.ext}`, `${board}/${thread}`, `${post.tim}${post.ext}`);
       } catch (e) {

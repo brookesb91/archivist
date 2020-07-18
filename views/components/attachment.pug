@@ -13,7 +13,7 @@ mixin attachment(post)
       when '.jpeg'
       when '.gif'
         img.post-image(src=thumb, data-thumb=thumb, data-full=url, alt="", onclick="toggleImage(this)")
-        figure.font-xs.text-white-2=post.filename + post.ext + " "
+        figure.font-xs.text-white-2.my-sm=post.filename + post.ext + " "
           span="(" + (post.fsize / 1000).toFixed() + "kb)"
         .flex.flex-row.items-center.justify-center.py-sm
           a(href="https://www.google.com/searchbyimage?image_url=" + url, title="Google Image Reverse Search", target="_blank").px-sm

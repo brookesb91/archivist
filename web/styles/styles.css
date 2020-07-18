@@ -65,3 +65,11 @@ main {
   flex: 1;
   max-width: 500px;
 }
+
+figure {
+  margin: 0;
+}
+
+.cursor-help {
+  cursor: help;
+}

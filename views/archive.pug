@@ -8,7 +8,9 @@ block append content
       .boards.p-md.flex.flex-row.justify-center.flex-wrap
         a(href="/" class=(!query.board ? 'bg-surface font-bold' : '')).board.p-md.rounded.font-sm="All"
         each item in boards
-          a(href="?board=" + item.board class=(query.board === item.board ? 'bg-surface font-bold' : '')).board.p-md.rounded.font-sm=item.board + " (" + item.count + ")"
+          a(href="?board=" + item.board class=(query.board === item.board ? 'bg-surface font-bold' : '')).board.p-md.rounded.font-sm="/" + item.board + "/ (" + item.count + ")"
+      .title.flex.flex-row.justify-center
+        h4=threads.total + " " + (threads.total === 1 ? 'Result' : 'Results')
       .threads.flex.flex-row.flex-wrap.justify-center
         each thread in threads.items
           - var post = thread.posts[0];
@@ -24,9 +26,9 @@ block append content
               .thread-content.font-sm!=post.com
 
             .thread-meta.w-full.text-green.flex.flex-row.items-center
-              .thread-replies [R: #{post.replies}]
-              .thread-images [I: #{post.images}]
-              .thread-uniques [U: #{post.unique_ips}]
+              .thread-replies.cursor-help(title="Replies") [R: #{post.replies}]
+              .thread-images.cursor-help(title="Images") [I: #{post.images}]
+              .thread-uniques.cursor-help(title="Unique IPs") [U: #{post.unique_ips}]
       .pagination
         .pages.p-lg.flex.flex-row.items-center.justify-center
           if pagination.previous
