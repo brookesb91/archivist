@@ -74,6 +74,16 @@ document.querySelectorAll('.post-id[data-id]').forEach(el => {
   el.style.color = color;
 });
 
+const linkify = (text) => {
+  const exp = /(^(https?|ftp|file):\/\/([-A-Z0-9+&@#%?=~_|!:,.;]*)([-A-Z0-9+&@#%?\/=~_|!:,.;]*)[-A-Z0-9+&@#\/%=~_|])/igm;
+  return text.replace(exp, "<a href='$1' target='_blank'>$3</a>");
+};
+
+const initLinks = () => {
+  document.querySelectorAll('.post-comment').forEach(el => el.innerHTML = linkify(el.innerHTML));
+};
+
 window.onload = () => {
+  // initLinks();
   initQuotes();
 };

@@ -1,3 +1,7 @@
+include icons/download
+include icons/external-link
+include icons/google
+
 mixin attachment(post)
   - var thumb = BASE_URL + "/static/" + thread.board + "/" + thread.thread + "/" + post.tim + "s.jpg";
   - var url = BASE_URL + "/static/"  + thread.board + "/" + thread.thread + "/" + post.tim + post.ext;
@@ -9,6 +13,15 @@ mixin attachment(post)
       when '.jpeg'
       when '.gif'
         img.post-image(src=thumb, data-thumb=thumb, data-full=url, alt="", onclick="toggleImage(this)")
+        figure.font-xs.text-white-2=post.filename + post.ext + " "
+          span="(" + (post.fsize / 1000).toFixed() + "kb)"
+        .flex.flex-row.items-center.justify-center.py-sm
+          a(href="https://www.google.com/searchbyimage?image_url=" + url, title="Google Image Reverse Search", target="_blank").px-sm
+            +icon-google(15,15)
+          a(href=url, download=post.filename + post.ext, title="Download").px-sm
+            +icon-download(15,15)
+          a(href=url target="_blank" title="Open In New Tab").px-sm
+            +icon-external-link(15,15)
         - break
 
       when '.webm'
@@ -19,5 +32,4 @@ mixin attachment(post)
       when '.flv'
         - break
 
-    figure.font-xs.text-white-2=post.filename + post.ext + " "
-      span="(" + (post.fsize / 1000).toFixed() + "kb)"
+

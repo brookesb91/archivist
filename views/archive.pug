@@ -6,9 +6,9 @@ block append styles
 block append content
   .archive-page
       .boards.p-md.flex.flex-row.justify-center.flex-wrap
-        a(href="/" class=(!query.board ? 'bg-surface font-bold' : '')).board.p-md.rounded.font-sm All
-        each board in boards
-          a(href="?board=" + board class=(query.board === board ? 'bg-surface font-bold' : '')).board.p-md.rounded.font-sm=board
+        a(href="/" class=(!query.board ? 'bg-surface font-bold' : '')).board.p-md.rounded.font-sm="All"
+        each item in boards
+          a(href="?board=" + item.board class=(query.board === item.board ? 'bg-surface font-bold' : '')).board.p-md.rounded.font-sm=item.board + " (" + item.count + ")"
       .threads.flex.flex-row.flex-wrap.justify-center
         each thread in threads.items
           - var post = thread.posts[0];

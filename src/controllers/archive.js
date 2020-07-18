@@ -43,7 +43,21 @@ const archive = async (req, res) => {
     total: await Thread.countDocuments(query)
   };
 
-  const boards = await Thread.distinct('board');
+  const boards = await Thread.aggregate([{
+    $sort: {
+      board: 1
+    }
+  }, {
+    $group: {
+      _id: '$board',
+      board: {
+        $first: '$board'
+      },
+      count: {
+        $sum: 1
+      }
+    }
+  }]);
 
   return res.render('archive', {
     BASE_URL: `http://${config.get('host')}:${config.get('port')}`,
@@ -52,7 +66,7 @@ const archive = async (req, res) => {
     },
     query,
     threads,
-    boards: boards.sort(),
+    boards,
     pagination: paginate(page, limit, threads.total)
   });
 };
