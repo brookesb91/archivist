@@ -36,7 +36,7 @@ const config = convict({
       doc: 'Mongo Database URI',
       format: String,
       default: 'mongodb://localhost/archivist',
-      emv: 'MONGODB_URI'
+      env: 'MONGODB_URI'
     }
   }
 });
