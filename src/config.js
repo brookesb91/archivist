@@ -25,6 +25,12 @@ const config = convict({
     default: '0.0.0.0',
     env: 'HOST'
   },
+  url: {
+    doc: 'Base URL',
+    default: 'http://localhost',
+    format: 'url',
+    env: 'URL'
+  },
   port: {
     doc: 'Port to bind the server listener.',
     format: 'port',
