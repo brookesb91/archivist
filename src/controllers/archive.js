@@ -60,7 +60,7 @@ const archive = async (req, res) => {
   }]);
 
   return res.render('archive', {
-    BASE_URL: `http://${config.get('url')}`,
+    BASE_URL: config.get('url'),
     page: {
       title: 'Archive'
     },

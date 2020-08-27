@@ -21,7 +21,7 @@ const thread = async (req, res) => {
   });
 
   return res.render('thread', {
-    BASE_URL: `http://${config.get('url')}`,
+    BASE_URL: config.get('url'),
     page: {
       title: data.posts[0].semantic_url,
       features: features(data.board),
