@@ -28,7 +28,7 @@ const config = convict({
   url: {
     doc: 'Base URL',
     default: 'http://localhost',
-    format: 'url',
+    format: String,
     env: 'URL'
   },
   port: {
