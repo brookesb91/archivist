@@ -3,8 +3,8 @@ include icons/external-link
 include icons/google
 
 mixin attachment(post)
-  - var thumb = BASE_URL + "/static/" + thread.board + "/" + thread.thread + "/" + post.tim + "s.jpg";
-  - var url = BASE_URL + "/static/"  + thread.board + "/" + thread.thread + "/" + post.tim + post.ext;
+  - var thumb = BASE_URL + "static/" + thread.board + "/" + thread.thread + "/" + post.tim + "s.jpg";
+  - var url = BASE_URL + "static/"  + thread.board + "/" + thread.thread + "/" + post.tim + post.ext;
   .post-attachment.flex.flex-col.items-center
     case post.ext
 
