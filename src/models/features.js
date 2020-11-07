@@ -5,6 +5,10 @@ const FEATURES = {
 };
 
 const features = (board) =>
-  Object.keys(FEATURES).map((feature) => FEATURES[feature].includes(board));
+  Object.keys(FEATURES).filter((feature) =>
+    FEATURES[feature].includes(board)
+  );
 
-export { features };
+export {
+  features
+};

@@ -1,7 +1,15 @@
-body
+mixin body()
   include components/header
   main
     #top
     block content
     #bottom
   include components/footer
+
+if page && page.features
+  #{'body ' + page.features.map(x => `feature-${x}`).join(' ')}
+    +body()
+else
+  body
+    +body()
+endif
