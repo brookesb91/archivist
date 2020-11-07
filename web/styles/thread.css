@@ -5,7 +5,7 @@
   border-style: var(--border-style);
 }
 
-.post-meta > *:not(:last-child) {
+.post-meta>*:not(:last-child) {
   margin-right: var(--spacing-md);
 }
 
@@ -14,10 +14,10 @@
   color: var(--post-meta-color);
 }
 
-.thread-tools > * + *,
-.thread-meta > * + *,
-.thread-links > * + * {
-  margin-left: var(--spacing-md);
+.thread-tools>*:not(:last-child),
+.thread-meta>*:not(:last-child),
+.thread-links>*:not(:last-child) {
+  margin-right: var(--spacing-md);
 }
 
 .thread-links a {
@@ -31,8 +31,10 @@
 }
 
 .post-meta .post-id {
+  line-height: var(--font-size-xs);
   padding: 2px 8px;
   border-radius: 10px;
+  font-family: monospace;
 }
 
 .post .post-attachment {

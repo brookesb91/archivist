@@ -37,19 +37,17 @@
 html,
 body {
   box-sizing: border-box;
-  max-height: 100vh;
+  /* max-height: 100vh; */
 }
 
 body {
+  -webkit-overflow-scrolling: touch;
   font-family: var(--font-family);
   font-size: var(--font-size);
   line-height: 1rem;
   color: var(--text-color);
   background-color: var(--background-color);
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
 }
 
 *:focus,

@@ -66,9 +66,20 @@ const contrastRGB = (rgb) => {
   return (contrast >= 128) ? 'black' : 'white';
 };
 
+const colorCache = {};
+
 document.querySelectorAll('.post-id[data-id]').forEach(el => {
   const id = el.getAttribute('data-id');
-  const background = id.toRGB();
+
+  let background;
+
+  if (colorCache[id]) {
+    background = colorCache[id];
+  } else {
+    background = id.toRGB();
+    colorCache[id] = background;
+  }
+
   const color = contrastRGB(background);
   el.style.backgroundColor = background;
   el.style.color = color;
